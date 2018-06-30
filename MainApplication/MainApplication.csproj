@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61F42DE0-3666-4EA7-932F-FD4CBEC4CA65}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MainApplication</RootNamespace>
+    <AssemblyName>MainApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildSelectStatementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildSelectStatementForm.Designer.cs">
+      <DependentUpon>BuildSelectStatementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckedListBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckedListBoxForm.Designer.cs">
+      <DependentUpon>CheckedListBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewNoRememberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewNoRememberForm.Designer.cs">
+      <DependentUpon>DataGridViewNoRememberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewRememberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewRememberForm.Designer.cs">
+      <DependentUpon>DataGridViewRememberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewResultsForm.Designer.cs">
+      <DependentUpon>DataGridViewResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListViewForm.Designer.cs">
+      <DependentUpon>ListViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewJsonExampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListViewJsonExampleForm.Designer.cs">
+      <DependentUpon>ListViewJsonExampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadProductListBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadProductListBoxForm.Designer.cs">
+      <DependentUpon>LoadProductListBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuildSelectStatementForm.resx">
+      <DependentUpon>BuildSelectStatementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxForm.resx">
+      <DependentUpon>CheckedListBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewNoRememberForm.resx">
+      <DependentUpon>DataGridViewNoRememberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewRememberForm.resx">
+      <DependentUpon>DataGridViewRememberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewResultsForm.resx">
+      <DependentUpon>DataGridViewResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListViewForm.resx">
+      <DependentUpon>ListViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListViewJsonExampleForm.resx">
+      <DependentUpon>ListViewJsonExampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadProductListBoxForm.resx">
+      <DependentUpon>LoadProductListBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="applications.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLangageExtensionsLibrary\CommonLangageExtensionsLibrary.csproj">
+      <Project>{0c318346-9797-449d-ac41-c6f10d5d5b0d}</Project>
+      <Name>CommonLangageExtensionsLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBackEnd\DataBackEnd.csproj">
+      <Project>{bb8f6cd6-d77e-4faf-94b9-ba610313eaad}</Project>
+      <Name>DataBackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataConnections\DataConnections.csproj">
+      <Project>{47439723-E001-4B04-9FBB-A5CDC436929C}</Project>
+      <Name>DataConnections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionsLibrary\ExceptionsLibrary.csproj">
+      <Project>{9910705C-F3C6-4D5E-BEA8-128AEF867F8E}</Project>
+      <Name>ExceptionsLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonLibrary\JsonLibrary.csproj">
+      <Project>{c8b5f30b-4407-475b-84b4-dfaa942bf887}</Project>
+      <Name>JsonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowFormsControls\WindowFormsControls.csproj">
+      <Project>{2EC148CD-7C11-4C39-891F-82B836EFE18A}</Project>
+      <Name>WindowFormsControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Information.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
