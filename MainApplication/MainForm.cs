@@ -80,15 +80,15 @@ namespace MainApplication
                 {
                     if (chkBoundDataGridViewRemember.Checked && f.HasChanges)
                     {
-                        var resultsForm = new DataGridViewResultsForm(f.CategoryIdentifier);
-                        try
-                        {
-                            resultsForm.ShowDialog();
-                        }
-                        finally
-                        {
-                            resultsForm.Dispose();
-                        }
+                        //var resultsForm = new DataGridViewResultsForm(f.CategoryIdentifier);
+                        //try
+                        //{
+                        //    resultsForm.ShowDialog();
+                        //}
+                        //finally
+                        //{
+                        //    resultsForm.Dispose();
+                        //}
                     }
                 }
             }

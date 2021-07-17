@@ -5,3 +5,27 @@ Source code for [TechNet article](https://social.technet.microsoft.com/wiki/cont
 ##### Requires
 - Microsoft Visual Studio 2017 or higher
 - Microsoft SQL-Server 2012 or higher
+
+#### Screen shots
+
+![img](assets/figure1.png)
+
+</br>
+
+![img](assets/figure2.png)
+
+</br>
+
+![img](assets/figure3.png)
+
+</br>
+
+![img](assets/figure4.png)
+
+</br>
+
+![img](assets/figure5.png)
+
+</br>
+
+![img](assets/figure6.png)

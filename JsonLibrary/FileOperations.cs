@@ -19,9 +19,9 @@ namespace JsonLibrary
         public List<Application> LoadApplicationData(string pFileName)
         {
 
-            using (StreamReader r = new StreamReader(pFileName))
+            using (StreamReader reader = new StreamReader(pFileName))
             {
-                string json = r.ReadToEnd();
+                string json = reader.ReadToEnd();
                 return JsonConvert.DeserializeObject<List<Application>>(json);
             }
 
@@ -35,14 +35,14 @@ namespace JsonLibrary
         public void SaveApplicationData(List<Application> pApplications, string pFileName)
         {
 
-            using (StreamWriter file = File.CreateText(pFileName))
+            using (StreamWriter writer = File.CreateText(pFileName))
             {
                 var serializer = new JsonSerializer
                 {
                     Formatting = Formatting.Indented
                 };
 
-                serializer.Serialize(file, pApplications);
+                serializer.Serialize(writer, pApplications);
             }
 
         }

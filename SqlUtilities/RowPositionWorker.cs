@@ -25,7 +25,7 @@ namespace SqlUtilities
             DefaultCatalog = "OrderingRows";
         }
         /// <summary>
-        /// Pass in default catelog
+        /// Pass in default catalog
         /// </summary>
         /// <param name="pDefaultCatalog"></param>
         public RowPositionWorker(string pDefaultCatalog)
@@ -38,9 +38,9 @@ namespace SqlUtilities
             var idList = new List<int>();
             var selectStatement = "SELECT DISTINCT CategoryID FROM dbo.Categories ";
 
-            using (SqlConnection cn = new SqlConnection() {ConnectionString = ConnectionString})
+            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
             {
-                using (SqlCommand cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() {Connection = cn})
                 {
                     cmd.CommandText = selectStatement;
                     cn.Open();
@@ -60,9 +60,9 @@ namespace SqlUtilities
         public bool RigSuppliersTable()
         {
             mHasException = false;
-            using (SqlConnection cn = new SqlConnection() {ConnectionString = ConnectionString})
+            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
             {
-                using (SqlCommand cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() {Connection = cn})
                 {
                     cmd.CommandText = 
                         "IF EXISTS  (SELECT * FROM INFORMATION_SCHEMA.COLUMNS " + 
@@ -120,9 +120,9 @@ namespace SqlUtilities
 
             var productList = new List<Product>();
 
-            using (SqlConnection cn = new SqlConnection() {ConnectionString = ConnectionString})
+            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
             {
-                using (SqlCommand cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() {Connection = cn})
                 {
                     cmd.CommandText = selectStatement;
                     cmd.Parameters.AddWithValue("@CategoryID", pCategoryIdentifier);

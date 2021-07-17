@@ -43,7 +43,7 @@ namespace CommonLangageExtensionsLibrary
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="pBindingSource">DataSource of ListBox</param>
-        /// <param name="pRowPositionFieldName">Field name for remebering position in database table</param>
+        /// <param name="pRowPositionFieldName">Field name for remembering position in database table</param>
         public static void MoveRowUp(this ListBox sender, BindingSource pBindingSource, string pRowPositionFieldName)
         {
             if (!string.IsNullOrWhiteSpace(pBindingSource.Sort))
@@ -79,7 +79,7 @@ namespace CommonLangageExtensionsLibrary
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="pBindingSource">DataSource of ListBox</param>
-        /// <param name="pRowPositionFieldName">Field name for remebering position in database table</param>
+        /// <param name="pRowPositionFieldName">Field name for remembering position in database table</param>
         public static void MoveRowDown(this ListBox sender, BindingSource pBindingSource, string pRowPositionFieldName)
         {
             if (!string.IsNullOrWhiteSpace(pBindingSource.Sort))

@@ -12,11 +12,11 @@ namespace MainApplication
         /// This is the field in the database table that hold the 
         /// position a record will be displayed
         /// </summary>
-        private Operations _ops = new Operations("RowPosition");
+        private readonly Operations _operations = new Operations("RowPosition");
         /// <summary>
         /// Data source for ListBox
         /// </summary>
-        private BindingSource _bsData = new BindingSource();
+        private readonly BindingSource _bindingSource = new BindingSource();
         /// <summary>
         /// Once a change is made e.g. a row is moved up or down this
         /// is set to true and if true on form closing will update the
@@ -24,15 +24,10 @@ namespace MainApplication
         /// </summary>
         private bool _hasChanges = false;
 
-        public bool HasChanges
-        {
-            get { return _hasChanges; }
-        }
+        public bool HasChanges => _hasChanges;
         private int _CategoryIdentifier;
-        public int CategoryIdentifier
-        {
-            get { return _CategoryIdentifier; }
-        }
+        public int CategoryIdentifier => _CategoryIdentifier;
+
         public DataGridViewRememberForm()
         {
             InitializeComponent();
@@ -46,13 +41,11 @@ namespace MainApplication
         /// <param name="e"></param>
         private void DataGridViewRememberForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ((DataTable) _bsData.DataSource).ReorderPositionMarker();
-            if (DialogResult == DialogResult.OK)
+            ((DataTable) _bindingSource.DataSource).ReorderPositionMarker();
+            if (DialogResult != DialogResult.OK) return;
+            if (_hasChanges)
             {
-                if (_hasChanges)
-                {
-                    _ops.UpdateProductTable((DataTable)_bsData.DataSource);
-                }
+                _operations.UpdateProductTable((DataTable)_bindingSource.DataSource);
             }
         }
         /// <summary>
@@ -65,13 +58,18 @@ namespace MainApplication
         /// <param name="e"></param>
         private void DataGridViewRememberForm_Load(object sender, EventArgs e)
         {
-            var dt = _ops.LoadProductsByCategory(-1);
-            _CategoryIdentifier = _ops.CategoryIdentifier;
+            
+            /*
+             * By default we pass a static category identifier, passing -1 selects a random category
+             */
+            var dt = _operations.LoadProductsByCategory(1);
+            
+            _CategoryIdentifier = _operations.CategoryIdentifier;
 
             dt.Columns["CategoryId"].ColumnMapping = MappingType.Hidden;
             dt.Columns["RowPosition"].SetOrdinal(0);
-            _bsData.DataSource = dt;
-            dataGridView1.DataSource = _bsData;
+            _bindingSource.DataSource = dt;
+            dataGridView1.DataSource = _bindingSource;
             dataGridView1.ExpandColumns();
         }
         /// <summary>
@@ -82,7 +80,7 @@ namespace MainApplication
         /// <param name="e"></param>
         private void upButton_Click(object sender, EventArgs e)
         {
-            _bsData.MoveRowUp();
+            _bindingSource.MoveRowUp();
             
             _hasChanges = true;
         }
@@ -94,7 +92,7 @@ namespace MainApplication
         /// <param name="e"></param>
         private void downButton_Click(object sender, EventArgs e)
         {
-            _bsData.MoveRowDown();
+            _bindingSource.MoveRowDown();
             
             _hasChanges = true;
         }

@@ -7,25 +7,25 @@ namespace MainApplication
 {
     public partial class DataGridViewResultsForm : Form
     {
-        private BindingSource _bindingSource = new BindingSource();
+        private readonly BindingSource _bindingSource = new BindingSource();
         private Operations _ops = new Operations("RowPosition");
         public DataGridViewResultsForm()
         {
             InitializeComponent();
         }
 
-        private int _CategoryIdentifier;
+        private int _categoryIdentifier;
         public DataGridViewResultsForm(int pCategoryIdentifier)
         {
             InitializeComponent();
 
-            _CategoryIdentifier = pCategoryIdentifier;
+            _categoryIdentifier = pCategoryIdentifier;
 
             Shown += DataGridViewResultsForm_Shown;
         }
         private void DataGridViewResultsForm_Shown(object sender, EventArgs e)
         {           
-            _bindingSource.DataSource = _ops.LoadProductsByCategory(_CategoryIdentifier);           
+            _bindingSource.DataSource = _ops.LoadProductsByCategory(_categoryIdentifier);           
             _bindingSource.Sort = _ops.KeyPositionFieldName;
             dataGridView1.DataSource = _bindingSource;
             dataGridView1.ExpandColumns();

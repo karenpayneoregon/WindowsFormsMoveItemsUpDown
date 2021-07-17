@@ -68,7 +68,7 @@
     <None Include="Resources\UpArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Information.txt" />
+    <None Include="Information.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

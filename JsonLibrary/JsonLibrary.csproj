@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="FileOperations.cs" />
-    <Compile Include="JSonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
