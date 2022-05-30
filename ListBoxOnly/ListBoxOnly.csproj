@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ListBoxExtensions.cs" />
     <Compile Include="Classes\Operations.cs" />
     <Compile Include="LoadProductListBoxForm.cs">
       <SubType>Form</SubType>
@@ -83,21 +84,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonLangageExtensionsLibrary\CommonLangageExtensionsLibrary.csproj">
-      <Project>{0c318346-9797-449d-ac41-c6f10d5d5b0d}</Project>
-      <Name>CommonLangageExtensionsLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataBackEnd\DataBackEnd.csproj">
-      <Project>{bb8f6cd6-d77e-4faf-94b9-ba610313eaad}</Project>
-      <Name>DataBackEnd</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataConnections\DataConnections.csproj">
       <Project>{47439723-E001-4B04-9FBB-A5CDC436929C}</Project>
       <Name>DataConnections</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExceptionsLibrary\ExceptionsLibrary.csproj">
-      <Project>{9910705c-f3c6-4d5e-bea8-128aef867f8e}</Project>
-      <Name>ExceptionsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\WindowFormsControls\WindowFormsControls.csproj">
       <Project>{2ec148cd-7c11-4c39-891f-82b836efe18a}</Project>
