@@ -79,15 +79,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataConnections\DataConnections.csproj">
-      <Project>{47439723-E001-4B04-9FBB-A5CDC436929C}</Project>
-      <Name>DataConnections</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WindowFormsControls\WindowFormsControls.csproj">
       <Project>{2ec148cd-7c11-4c39-891f-82b836efe18a}</Project>
       <Name>WindowFormsControls</Name>
