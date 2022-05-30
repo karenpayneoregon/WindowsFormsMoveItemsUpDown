@@ -57,7 +57,7 @@ namespace DataBackEnd
             }
         }
         /// <summary>
-        /// When insering a new record into Products table the RowPosition needs to 
+        /// When inserting a new record into Products table the RowPosition needs to 
         /// be set. This method provides the last RowPosition, when using to insert
         /// a new product record add 1 to the return value.
         /// </summary>
@@ -385,6 +385,47 @@ namespace DataBackEnd
 
         private int _categoryIdentifier;
         public int CategoryIdentifier => _categoryIdentifier;
+        public (DataTable table, Exception exception) LoadProductsByCategoryId(int pCategoryIdentifier)
+        {
+            if (pCategoryIdentifier == -1)
+            {
+                pCategoryIdentifier = RandomCategoryIdentifier();
+            }
+
+            _categoryIdentifier = pCategoryIdentifier;
+
+            var dt = new DataTable();
+            mHasException = false;
+
+            //
+            // Note the field to use for positioning rows is dynamic based on the name provided
+            // in the constructor.
+            //
+            var selectStatement = $"SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} " +
+                                  "FROM dbo.Products WHERE CategoryID = @CategoryID " +
+                                  $"ORDER BY {KeyPositionFieldName}";
+
+
+            using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
+            {
+                using (var cmd = new SqlCommand() { Connection = cn })
+                {
+                    cmd.Parameters.AddWithValue("@CategoryID", pCategoryIdentifier);
+                    try
+                    {
+                        cmd.CommandText = selectStatement;
+                        cn.Open();
+                        dt.Load(cmd.ExecuteReader());
+                    }
+                    catch (Exception e)
+                    {
+                        return (null, e);
+                    }
+                }
+            }
+
+            return (dt, null);
+        }
 
         /// <summary>
         /// Load products by category identifier
@@ -445,7 +486,7 @@ namespace DataBackEnd
             var selectStatement = $"UPDATE dbo.Products SET {KeyPositionFieldName} =" +
                                     $" @{KeyPositionFieldName} WHERE ProductID = @ProductId";
 
-
+            Console.WriteLine(ConnectionString);
             using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
             {
                 using (var cmd = new SqlCommand() { Connection = cn })

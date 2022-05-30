@@ -7,7 +7,7 @@ namespace WindowFormsControls
     {
         public UpButton()
         {
-            Image = Properties.Resources.UpArrow;
+            Image = Properties.Resources.UpBlackSmall;
             Size = new Size(44, 40);
             Paint += UpButton_Paint;
         }

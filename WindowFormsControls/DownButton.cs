@@ -7,7 +7,7 @@ namespace WindowFormsControls
     {
         public DownButton() : base()
         {
-            Image = Properties.Resources.DnArrow;
+            Image = Properties.Resources.DownBlackSmall;
             Size = new Size(44, 40);
             Paint += DownButton_Paint1;
         }
