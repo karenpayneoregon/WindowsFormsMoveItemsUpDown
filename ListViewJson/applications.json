@@ -1,0 +1,122 @@
+﻿[
+    {
+        "id": 1,
+        "ApplicationName": "Stronghold",
+        "ApplicationVersion": "0.35",
+        "ApplicationKey": "e3bb2399-9547-4bb9-86f1-578f6468ac1b"
+    },
+    {
+        "id": 2,
+        "ApplicationName": "Karen Entity",
+        "ApplicationVersion": "0.80",
+        "ApplicationKey": "fa6d4c20-ba8d-493c-9823-0d2df307ea3f"
+    },
+    {
+        "id": 3,
+        "ApplicationName": "Fix San",
+        "ApplicationVersion": "3.8.9",
+        "ApplicationKey": "13a3e6d3-6ddc-498f-a3b1-209cfd58e187"
+    },
+    {
+        "id": 4,
+        "ApplicationName": "Sub-Ex",
+        "ApplicationVersion": "8.2",
+        "ApplicationKey": "07dea10e-f43a-432f-bccd-ad210fa13cf7"
+    },
+    {
+        "id": 5,
+        "ApplicationName": "Duobam",
+        "ApplicationVersion": "0.79",
+        "ApplicationKey": "0fd2a1dc-5ebb-4ec3-b54a-d8025370a0ab"
+    },
+    {
+        "id": 6,
+        "ApplicationName": "Duobam",
+        "ApplicationVersion": "2.3",
+        "ApplicationKey": "27f2a9b0-aa04-4cd9-894b-61d744a21ad8"
+    },
+    {
+        "id": 7,
+        "ApplicationName": "Zoolab",
+        "ApplicationVersion": "7.56",
+        "ApplicationKey": "bb81a236-b199-4bbe-a939-0b1be1c3157c"
+    },
+    {
+        "id": 8,
+        "ApplicationName": "Alpha",
+        "ApplicationVersion": "6.06",
+        "ApplicationKey": "b6a68d03-6afc-4e66-87c3-1bda272900fe"
+    },
+    {
+        "id": 9,
+        "ApplicationName": "Stim",
+        "ApplicationVersion": "4.0.5",
+        "ApplicationKey": "b84b6531-c88d-45b6-871b-69c3b820b4df"
+    },
+    {
+        "id": 10,
+        "ApplicationName": "Zoolab",
+        "ApplicationVersion": "4.3",
+        "ApplicationKey": "7aae9913-2d40-4856-bc9d-a5c85977243d"
+    },
+    {
+        "id": 11,
+        "ApplicationName": "Bitwolf",
+        "ApplicationVersion": "3.4.7",
+        "ApplicationKey": "272ddba9-0be9-4df5-ac2b-f0da0169e878"
+    },
+    {
+        "id": 12,
+        "ApplicationName": "Duobam",
+        "ApplicationVersion": "0.31",
+        "ApplicationKey": "e76c0462-0a54-46d9-81a2-17706246cbac"
+    },
+    {
+        "id": 13,
+        "ApplicationName": "Voltsillam",
+        "ApplicationVersion": "4.85",
+        "ApplicationKey": "68706686-9222-420a-90bb-f0bcb5c583d7"
+    },
+    {
+        "id": 14,
+        "ApplicationName": "Bytecard",
+        "ApplicationVersion": "3.37",
+        "ApplicationKey": "308f9ff4-f4d3-4a46-bb19-f2057877dbaa"
+    },
+    {
+        "id": 15,
+        "ApplicationName": "Ronstring",
+        "ApplicationVersion": "1.5",
+        "ApplicationKey": "ee99628b-fe00-4edb-86df-77ee8352eed1"
+    },
+    {
+        "id": 16,
+        "ApplicationName": "Biodex",
+        "ApplicationVersion": "6.9",
+        "ApplicationKey": "8f86a454-73eb-4143-be75-05762387ec22"
+    },
+    {
+        "id": 17,
+        "ApplicationName": "Bamity",
+        "ApplicationVersion": "0.22",
+        "ApplicationKey": "e9df90bf-02a3-4116-bdcc-9d32711b4f90"
+    },
+    {
+        "id": 18,
+        "ApplicationName": "Andalax",
+        "ApplicationVersion": "4.1",
+        "ApplicationKey": "b2977b3d-3113-4d0f-bb6c-10f2faae6757"
+    },
+    {
+        "id": 19,
+        "ApplicationName": "Biodex",
+        "ApplicationVersion": "0.8.4",
+        "ApplicationKey": "7d3b1e2a-d82c-417b-8099-8376084ffa9c"
+    },
+    {
+        "id": 20,
+        "ApplicationName": "Treeflex",
+        "ApplicationVersion": "0.61",
+        "ApplicationKey": "0a8a6f82-47f1-4257-b2ca-5622e1f1ab53"
+    }
+]

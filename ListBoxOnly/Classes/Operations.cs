@@ -113,7 +113,8 @@ namespace ListBoxOnly.Classes
                             cmd.Parameters["@ProductId"].Value =
                                 pDataTable.Rows[rowIndex].Field<int>("ProductId");
 
-                            cmd.ExecuteNonQuery();
+                            //cmd.ExecuteNonQuery();
+                            Console.WriteLine(cmd.ExecuteNonQuery());
                             newPosition += 1;
                         }
 
