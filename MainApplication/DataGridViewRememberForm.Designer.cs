@@ -47,18 +47,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(437, 266);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 328);
             this.dataGridView1.TabIndex = 4;
             // 
             // cmdClose
             // 
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdClose.Location = new System.Drawing.Point(437, 10);
+            this.cmdClose.Location = new System.Drawing.Point(583, 12);
+            this.cmdClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(75, 23);
+            this.cmdClose.Size = new System.Drawing.Size(100, 28);
             this.cmdClose.TabIndex = 1;
             this.cmdClose.Text = "Cancel";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -68,17 +71,19 @@
             this.panel2.Controls.Add(this.downButton1);
             this.panel2.Controls.Add(this.upButton1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(437, 0);
+            this.panel2.Location = new System.Drawing.Point(583, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(87, 266);
+            this.panel2.Size = new System.Drawing.Size(116, 328);
             this.panel2.TabIndex = 6;
             // 
             // downButton1
             // 
             this.downButton1.Image = ((System.Drawing.Image)(resources.GetObject("downButton1.Image")));
-            this.downButton1.Location = new System.Drawing.Point(17, 58);
+            this.downButton1.Location = new System.Drawing.Point(23, 71);
+            this.downButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.downButton1.Name = "downButton1";
-            this.downButton1.Size = new System.Drawing.Size(44, 40);
+            this.downButton1.Size = new System.Drawing.Size(59, 49);
             this.downButton1.TabIndex = 1;
             this.downButton1.UseVisualStyleBackColor = true;
             this.downButton1.Click += new System.EventHandler(this.downButton_Click);
@@ -86,9 +91,10 @@
             // upButton1
             // 
             this.upButton1.Image = ((System.Drawing.Image)(resources.GetObject("upButton1.Image")));
-            this.upButton1.Location = new System.Drawing.Point(17, 12);
+            this.upButton1.Location = new System.Drawing.Point(23, 15);
+            this.upButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.upButton1.Name = "upButton1";
-            this.upButton1.Size = new System.Drawing.Size(44, 40);
+            this.upButton1.Size = new System.Drawing.Size(59, 49);
             this.upButton1.TabIndex = 0;
             this.upButton1.UseVisualStyleBackColor = true;
             this.upButton1.Click += new System.EventHandler(this.upButton_Click);
@@ -98,30 +104,33 @@
             this.panel1.Controls.Add(this.cmdSave);
             this.panel1.Controls.Add(this.cmdClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 266);
+            this.panel1.Location = new System.Drawing.Point(0, 328);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 45);
+            this.panel1.Size = new System.Drawing.Size(699, 55);
             this.panel1.TabIndex = 5;
             // 
             // cmdSave
             // 
             this.cmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdSave.Location = new System.Drawing.Point(356, 10);
+            this.cmdSave.Location = new System.Drawing.Point(475, 12);
+            this.cmdSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdSave.Size = new System.Drawing.Size(100, 28);
             this.cmdSave.TabIndex = 2;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             // 
             // DataGridViewRememberForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 311);
+            this.ClientSize = new System.Drawing.Size(699, 383);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DataGridViewRememberForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Has DataSource";

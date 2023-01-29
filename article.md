@@ -1,0 +1,7 @@
+## Introduction
+
+This article provides methods for allowing the following, DataGridView, ListBox, CheckedListBox and ListView to move rows/items up and down by means of two buttons. There are many reasons for providing this which range from displaying field names in a CheckedListBox where any items checked, moved fields up or down are moved to a ListBox to create a SQL statement which may be used in a dynamic report system. Other uses, a business requirement states that data in any of these controls allow the user of the application to order underlying items rather than A-Z or Z-A conventional ordering. This may be for display only or perhaps in an ordering system where the order is important such as in purchasing from a factious music store where the ordering becomes the order in which the user wants to hear the music. Note this functionality is natively used in several operations inside of Visual Studio and many other products.
+
+Typical business applications which interact with data usually present data in the user interface un-sorted or sorted by a fixed order or user-defined order while there is another possibility, provide the user with an option to sort data in a non-orthodox sort order such as business wants the capability to order by row e.g. move row one in a DataGridView, a ListBox, a CheckedListBox or a ListView up or down and remember the position when reopening their application.
+
+## Implementation

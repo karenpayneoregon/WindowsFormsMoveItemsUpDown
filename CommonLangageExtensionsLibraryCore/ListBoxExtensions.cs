@@ -1,4 +1,5 @@
 ﻿using System.Data;
+#pragma warning disable CS8602
 
 namespace CommonLangageExtensionsLibraryCore;
 

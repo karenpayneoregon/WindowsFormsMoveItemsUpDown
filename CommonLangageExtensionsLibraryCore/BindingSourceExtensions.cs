@@ -30,6 +30,7 @@ public static class BindingSourceExtensions
         sender.Position = newIndex;
 
     }
+
     /// <summary>
     /// Move row down by one
     /// </summary>
