@@ -38,9 +38,9 @@ namespace SqlUtilities
             var idList = new List<int>();
             var selectStatement = "SELECT DISTINCT CategoryID FROM dbo.Categories ";
 
-            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
+            using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
             {
-                using (var cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() { Connection = cn })
                 {
                     cmd.CommandText = selectStatement;
                     cn.Open();
@@ -57,16 +57,16 @@ namespace SqlUtilities
             return idList;
         }
 
-        public bool RigSuppliersTable()
+        public (bool success, Exception exception) RigSuppliersTable()
         {
-            mHasException = false;
-            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
+
+            using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
             {
-                using (var cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() { Connection = cn })
                 {
-                    cmd.CommandText = 
-                        "IF EXISTS  (SELECT * FROM INFORMATION_SCHEMA.COLUMNS " + 
-                        "WHERE table_name = 'Suppliers'  " + 
+                    cmd.CommandText =
+                        "IF EXISTS  (SELECT * FROM INFORMATION_SCHEMA.COLUMNS " +
+                        "WHERE table_name = 'Suppliers'  " +
                         "AND column_name = 'RowPosition') BEGIN " +
                         "ALTER TABLE Suppliers DROP COLUMN RowPosition END";
 
@@ -79,8 +79,8 @@ namespace SqlUtilities
                         cmd.ExecuteNonQuery();
 
                         cmd.Parameters.AddWithValue("@MaxSurrogateKey", 0);
-                        cmd.CommandText = "UPDATE  dbo.Suppliers " + 
-                                          "SET @MaxSurrogateKey = RowPosition = @MaxSurrogateKey + 1 " + 
+                        cmd.CommandText = "UPDATE  dbo.Suppliers " +
+                                          "SET @MaxSurrogateKey = RowPosition = @MaxSurrogateKey + 1 " +
                                            "WHERE   RowPosition IS NULL; ";
 
                         cmd.ExecuteNonQuery();
@@ -88,13 +88,12 @@ namespace SqlUtilities
                     }
                     catch (Exception e)
                     {
-                        mHasException = true;
-                        mLastException = e;
+                        return (false, e);
                     }
                 }
             }
 
-            return IsSuccessFul;
+            return (true, null);
         }
 
         /// <summary>
@@ -102,86 +101,78 @@ namespace SqlUtilities
         /// is needed after adding this field to the product table. 
         /// 
         /// This assumes product table started prior to implementing rows up/down
-        /// and that the postion field has been added to the table.
+        /// and that the position field has been added to the table.
         /// </summary>
         /// <param name="pCategoryIdentifier"></param>
         /// <returns></returns>
-        public bool ProductTable(int pCategoryIdentifier)
+        public void ProductTable(int pCategoryIdentifier)
         {
-            mHasException = false;
 
-            var selectStatement = "SELECT ProductID,CategoryID,RowPosition " + 
+
+            var selectStatement = "SELECT ProductID,CategoryID,RowPosition " +
                                   "FROM dbo.Products WHERE CategoryID = @CategoryID " +
                                   "ORDER BY CategoryID, ProductName";
 
             var updateStatement = "UPDATE dbo.Products " +
-                                  "SET RowPosition = @RowPosition " + 
+                                  "SET RowPosition = @RowPosition " +
                                   "WHERE ProductID = @ProductId";
 
             var productList = new List<Product>();
 
-            using (var cn = new SqlConnection() {ConnectionString = ConnectionString})
+            using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
             {
-                using (var cmd = new SqlCommand() {Connection = cn})
+                using (var cmd = new SqlCommand() { Connection = cn })
                 {
                     cmd.CommandText = selectStatement;
                     cmd.Parameters.AddWithValue("@CategoryID", pCategoryIdentifier);
 
-                    try
+                    cn.Open();
+
+                    var reader = cmd.ExecuteReader();
+                    var counter = 0;
+
+                    while (reader.Read())
                     {
-                        cn.Open();
-
-                        var reader = cmd.ExecuteReader();
-                        var counter = 0;
-
-                        while (reader.Read())
+                        productList.Add(new Product()
                         {
-                            productList.Add(new Product()
-                            {
-                                ProductID = reader.GetInt32(0),
-                                CategoryID = pCategoryIdentifier,
-                                RowPosition = counter
-                            });
-
-                            counter += 1;
-                        }
-
-                        reader.Close();
-
-                        cmd.Parameters.Clear();
-
-                        cmd.CommandText = updateStatement;
-
-                        cmd.Parameters.Add(new SqlParameter()
-                        {
-                            ParameterName = "@ProductId",
-                            SqlDbType = SqlDbType.Int
+                            ProductID = reader.GetInt32(0),
+                            CategoryID = pCategoryIdentifier,
+                            RowPosition = counter
                         });
 
-                        cmd.Parameters.Add(new SqlParameter()
-                        {
-                            ParameterName = "@RowPosition",
-                            SqlDbType = SqlDbType.Int
-                        });
-                        for (int index = 0; index < productList.Count; index++)
-                        {
-                            cmd.Parameters["@ProductId"].Value = productList[index].ProductID;
-                            cmd.Parameters["@RowPosition"].Value = productList[index].RowPosition;
-                            cmd.ExecuteNonQuery();
-                        }
-
+                        counter += 1;
                     }
-                    catch (Exception ex)
+
+                    reader.Close();
+
+                    cmd.Parameters.Clear();
+
+                    cmd.CommandText = updateStatement;
+
+                    cmd.Parameters.Add(new SqlParameter()
                     {
-                        mHasException = true;
-                        mLastException = ex;
-                        return false;
+                        ParameterName = "@ProductId",
+                        SqlDbType = SqlDbType.Int
+                    });
+
+                    cmd.Parameters.Add(new SqlParameter()
+                    {
+                        ParameterName = "@RowPosition",
+                        SqlDbType = SqlDbType.Int
+                    });
+
+                    for (int index = 0; index < productList.Count; index++)
+                    {
+                        cmd.Parameters["@ProductId"].Value = productList[index].ProductID;
+                        cmd.Parameters["@RowPosition"].Value = productList[index].RowPosition;
+                        cmd.ExecuteNonQuery();
                     }
 
                 }
-            }
 
-            return true;
+
+            }
         }
+
     }
 }

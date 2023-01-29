@@ -12,11 +12,11 @@ public class FileOperations
     /// Read json file into a list which will be passed to
     /// a form to load into a ListView
     /// </summary>
-    /// <param name="pFileName">File to read json from</param>
+    /// <param name="fileName">File to read json from</param>
     /// <returns></returns>
-    public List<Application> LoadApplicationData(string pFileName)
+    public List<Application> LoadApplicationData(string fileName)
     {
-        using StreamReader reader = new(pFileName);
+        using StreamReader reader = new(fileName);
         string json = reader.ReadToEnd();
         return JsonConvert.DeserializeObject<List<Application>>(json);
     }
@@ -25,10 +25,10 @@ public class FileOperations
     /// data to a json file.
     /// </summary>
     /// <param name="pApplications">List of Application</param>
-    /// <param name="pFileName">Path and file name to save the list oo</param>
-    public void SaveApplicationData(List<Application> pApplications, string pFileName)
+    /// <param name="fileName">Path and file name to save the list oo</param>
+    public void SaveApplicationData(List<Application> pApplications, string fileName)
     {
-        using StreamWriter writer = File.CreateText(pFileName);
+        using StreamWriter writer = File.CreateText(fileName);
         var serializer = new JsonSerializer
         {
             Formatting = Formatting.Indented

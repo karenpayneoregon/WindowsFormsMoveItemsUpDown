@@ -18,13 +18,15 @@ namespace ConsoleApp1
         {
             var ops = new RowPositionWorker();
 
-            if (ops.RigSuppliersTable())
+            var (success, exception) = ops.RigSuppliersTable();
+
+            if (success)
             {
                 Console.WriteLine("Supplier table successfully has RowPosition");
             }
             else
             {
-                Console.WriteLine($"{ops.LastExceptionMessage}");
+                Console.WriteLine($"{exception.Message}");
             }
 
             Console.ReadLine();
