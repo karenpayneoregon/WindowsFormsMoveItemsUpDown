@@ -13,12 +13,10 @@ public static class ListBoxExtensions
     {
         var selectedIndex = sender.SelectedIndex;
 
-        if (selectedIndex > 0)
-        {
-            sender.Items.Insert(selectedIndex - 1, sender.Items[selectedIndex]);
-            sender.Items.RemoveAt(selectedIndex + 1);
-            sender.SelectedIndex = selectedIndex - 1;
-        }
+        if (selectedIndex <= 0) return;
+        sender.Items.Insert(selectedIndex - 1, sender.Items[selectedIndex]);
+        sender.Items.RemoveAt(selectedIndex + 1);
+        sender.SelectedIndex = selectedIndex - 1;
 
     }
     /// <summary>
@@ -29,12 +27,10 @@ public static class ListBoxExtensions
     {
         var selectedIndex = sender.SelectedIndex;
 
-        if (selectedIndex < sender.Items.Count - 1 & selectedIndex != -1)
-        {
-            sender.Items.Insert(selectedIndex + 2, sender.Items[selectedIndex]);
-            sender.Items.RemoveAt(selectedIndex);
-            sender.SelectedIndex = selectedIndex + 1;
-        }
+        if (!(selectedIndex < sender.Items.Count - 1 & selectedIndex != -1)) return;
+        sender.Items.Insert(selectedIndex + 2, sender.Items[selectedIndex]);
+        sender.Items.RemoveAt(selectedIndex);
+        sender.SelectedIndex = selectedIndex + 1;
 
     }
     /// <summary>
