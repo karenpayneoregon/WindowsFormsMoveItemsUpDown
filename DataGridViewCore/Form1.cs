@@ -11,7 +11,7 @@ public partial class Form1 : Form
     /// This is the field in the database table that hold the 
     /// position a record will be displayed
     /// </summary>
-    private readonly Operations _operations = new ();
+    private readonly Operations _operations = new();
 
     /// <summary>
     /// Data source for ListBox
@@ -60,17 +60,23 @@ public partial class Form1 : Form
         }
     }
 
-    private void upButton1_Click(object sender, EventArgs e)
+    private void upButton_Click(object sender, EventArgs e)
     {
         _bindingSource.MoveRowUp();
 
         _hasChanges = true;
     }
 
-    private void downButton1_Click(object sender, EventArgs e)
+    private void downButton_Click(object sender, EventArgs e)
     {
         _bindingSource.MoveRowDown();
 
         _hasChanges = true;
+    }
+
+    private void CurrentRowDataButton_Click(object sender, EventArgs e)
+    {
+        var row = ((DataRowView)_bindingSource.Current).Row;
+        MessageBox.Show($@"Product name: {row.Field<string>("ProductName")}");
     }
 }

@@ -15,7 +15,9 @@ public static class BindingSourceExtensions
             sender.Sort = "";
         }
 
-        var newIndex = Convert.ToInt32((sender.Position == 0) ? 0 : sender.Position - 1);
+        var newIndex = Convert.ToInt32((sender.Position == 0) ? 
+            0 : 
+            sender.Position - 1);
 
         var dt = (DataTable)sender.DataSource;
         DataRow rowToMove = ((DataRowView)sender.Current).Row;
@@ -43,7 +45,9 @@ public static class BindingSourceExtensions
         }
 
         var upperLimit = sender.Count - 1;
-        var newIndex = Convert.ToInt32((sender.Position + 1 >= upperLimit) ? upperLimit : sender.Position + 1);
+        var newIndex = Convert.ToInt32((sender.Position + 1 >= upperLimit) ? 
+            upperLimit : 
+            sender.Position + 1);
 
         var dt = (DataTable)sender.DataSource;
         DataRow rowToMove = ((DataRowView)sender.Current).Row;
