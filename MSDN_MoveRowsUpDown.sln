@@ -49,11 +49,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class project conventional"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridViewCore", "DataGridViewCore\DataGridViewCore.csproj", "{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewCore1", "DataGridViewCore1\DataGridViewCore1.csproj", "{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridViewCore1", "DataGridViewCore1\DataGridViewCore1.csproj", "{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperLibrary1", "DapperLibrary1\DapperLibrary1.csproj", "{A1D28F29-D68E-43FC-ADA1-3CBF0CEB37C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewCore2", "DataGridViewCore2\DataGridViewCore2.csproj", "{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridViewCore2", "DataGridViewCore2\DataGridViewCore2.csproj", "{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateRowMarkerSampleApp", "CreateRowMarkerSampleApp\CreateRowMarkerSampleApp.csproj", "{B9F36288-04D7-40CC-8384-5555791347E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,10 @@ Global
 		{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F36288-04D7-40CC-8384-5555791347E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F36288-04D7-40CC-8384-5555791347E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F36288-04D7-40CC-8384-5555791347E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F36288-04D7-40CC-8384-5555791347E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +169,7 @@ Global
 		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
 		{A1D28F29-D68E-43FC-ADA1-3CBF0CEB37C0} = {9DE2E1B5-47D4-4C9E-9024-753B56527B02}
 		{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
+		{B9F36288-04D7-40CC-8384-5555791347E4} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960C72E1-CAD4-4406-9C92-CC4C54ECA8D0}

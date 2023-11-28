@@ -10,11 +10,11 @@ public class Operations
     /// Set up default category for the sql-server database
     /// Set the field used to update row position in a table.
     /// </summary>
-    /// <param name="pKeyPositionFieldName"></param>
-    public Operations(string pKeyPositionFieldName = "RowPosition")
+    /// <param name="keyPositionFieldName"></param>
+    public Operations(string keyPositionFieldName = "RowPosition")
     {
 
-        KeyPositionFieldName = pKeyPositionFieldName;
+        KeyPositionFieldName = keyPositionFieldName;
     }
     /// <summary>
     /// Field responsible for remembering position
@@ -38,8 +38,7 @@ public class Operations
             try
             {
                 cn.Open();
-                //return (int)cmd.ExecuteScalar();
-                return (true,(int)cmd.ExecuteScalar(), null)!;
+                return (true,(int)cmd.ExecuteScalar()!, null)!;
             }
             catch (Exception ex)
             {
@@ -56,12 +55,12 @@ public class Operations
     /// <summary>
     /// Load products by category identifier
     /// </summary>
-    /// <param name="pCategoryIdentifier">Exists category identifier</param>
+    /// <param name="categoryIdentifier">Exists category identifier</param>
     /// <returns></returns>
-    public DataTable LoadProductsByCategory(int pCategoryIdentifier)
+    public DataTable LoadProductsByCategory(int categoryIdentifier)
     {
             
-        _categoryIdentifier = pCategoryIdentifier;
+        _categoryIdentifier = categoryIdentifier;
 
         var dt = new DataTable();
    
@@ -70,14 +69,18 @@ public class Operations
         // Note the field to use for positioning rows is dynamic based on the name provided
         // in the constructor.
         //
-        var selectStatement = $"SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} " +
-                              "FROM dbo.Products WHERE CategoryID = @CategoryID " +
-                              $"ORDER BY {KeyPositionFieldName}";
+        var selectStatement = 
+            $"""
+             SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} 
+             FROM dbo.Products 
+             WHERE CategoryID = @CategoryID 
+             ORDER BY {KeyPositionFieldName}
+            """;
 
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
         using var cmd = new SqlCommand() { Connection = cn };
-        //cmd.Parameters.AddWithValue("@CategoryID", pCategoryIdentifier);
+        
         cmd.Parameters.Add("@CategoryID", SqlDbType.Int).Value = _categoryIdentifier;
         cmd.CommandText = selectStatement;
         cn.Open();
@@ -89,14 +92,16 @@ public class Operations
     /// <summary>
     /// Update row position field in product table
     /// </summary>
-    /// <param name="pDataTable"></param>
+    /// <param name="dataTable"></param>
     /// <returns></returns>
-    public void UpdateProductTable(DataTable pDataTable)
+    public void UpdateProductTable(DataTable dataTable)
     {
-
-
-        var selectStatement = $"UPDATE dbo.Products SET {KeyPositionFieldName} =" +
-                              $" @{KeyPositionFieldName} WHERE ProductID = @ProductId";
+        var selectStatement = 
+            $"""
+             UPDATE dbo.Products 
+             SET {KeyPositionFieldName} = @{KeyPositionFieldName} 
+             WHERE ProductID = @ProductId
+             """;
 
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
@@ -120,13 +125,13 @@ public class Operations
         // used to give new row position
         int newPosition = 0;
 
-        for (var rowIndex = 0; rowIndex < pDataTable.Rows.Count; rowIndex++)
+        for (var rowIndex = 0; rowIndex < dataTable.Rows.Count; rowIndex++)
         {
             // set new row position
             cmd.Parameters[$"@{KeyPositionFieldName}"].Value = newPosition;
 
             cmd.Parameters["@ProductId"].Value =
-                pDataTable.Rows[rowIndex].Field<int>("ProductId");
+                dataTable.Rows[rowIndex].Field<int>("ProductId");
 
             cmd.ExecuteNonQuery();
             newPosition += 1;
