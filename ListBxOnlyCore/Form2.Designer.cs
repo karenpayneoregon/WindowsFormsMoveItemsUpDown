@@ -28,67 +28,66 @@ partial class Form2
     /// </summary>
     private void InitializeComponent()
     {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.downButton1 = new WindowFormsControlsCore.DownButton();
-            this.upButton1 = new WindowFormsControlsCore.UpButton();
-            this.CurrentButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(150, 304);
-            this.listBox1.TabIndex = 0;
-            // 
-            // downButton1
-            // 
-            this.downButton1.Image = ((System.Drawing.Image)(resources.GetObject("downButton1.Image")));
-            this.downButton1.Location = new System.Drawing.Point(194, 127);
-            this.downButton1.Name = "downButton1";
-            this.downButton1.Size = new System.Drawing.Size(55, 50);
-            this.downButton1.TabIndex = 4;
-            this.downButton1.UseVisualStyleBackColor = true;
-            this.downButton1.Click += new System.EventHandler(this.downButton_Click);
-            // 
-            // upButton1
-            // 
-            this.upButton1.Image = ((System.Drawing.Image)(resources.GetObject("upButton1.Image")));
-            this.upButton1.Location = new System.Drawing.Point(194, 59);
-            this.upButton1.Name = "upButton1";
-            this.upButton1.Size = new System.Drawing.Size(55, 50);
-            this.upButton1.TabIndex = 3;
-            this.upButton1.UseVisualStyleBackColor = true;
-            this.upButton1.Click += new System.EventHandler(this.upButton_Click);
-            // 
-            // CurrentButton
-            // 
-            this.CurrentButton.Location = new System.Drawing.Point(194, 197);
-            this.CurrentButton.Name = "CurrentButton";
-            this.CurrentButton.Size = new System.Drawing.Size(94, 29);
-            this.CurrentButton.TabIndex = 5;
-            this.CurrentButton.Text = "Current";
-            this.CurrentButton.UseVisualStyleBackColor = true;
-            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
-            // 
-            // Form2
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 344);
-            this.Controls.Add(this.CurrentButton);
-            this.Controls.Add(this.downButton1);
-            this.Controls.Add(this.upButton1);
-            this.Controls.Add(this.listBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
-            this.ResumeLayout(false);
-
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+        listBox1 = new ListBox();
+        downButton1 = new WindowFormsControlsCore.DownButton();
+        upButton1 = new WindowFormsControlsCore.UpButton();
+        CurrentButton = new Button();
+        SuspendLayout();
+        // 
+        // listBox1
+        // 
+        listBox1.FormattingEnabled = true;
+        listBox1.ItemHeight = 20;
+        listBox1.Location = new Point(12, 12);
+        listBox1.Name = "listBox1";
+        listBox1.Size = new Size(150, 304);
+        listBox1.TabIndex = 0;
+        // 
+        // downButton1
+        // 
+        downButton1.Image = (Image)resources.GetObject("downButton1.Image");
+        downButton1.Location = new Point(194, 127);
+        downButton1.Name = "downButton1";
+        downButton1.Size = new Size(55, 50);
+        downButton1.TabIndex = 4;
+        downButton1.UseVisualStyleBackColor = true;
+        downButton1.Click += downButton_Click;
+        // 
+        // upButton1
+        // 
+        upButton1.Image = (Image)resources.GetObject("upButton1.Image");
+        upButton1.Location = new Point(194, 59);
+        upButton1.Name = "upButton1";
+        upButton1.Size = new Size(55, 50);
+        upButton1.TabIndex = 3;
+        upButton1.UseVisualStyleBackColor = true;
+        upButton1.Click += upButton_Click;
+        // 
+        // CurrentButton
+        // 
+        CurrentButton.Location = new Point(194, 197);
+        CurrentButton.Name = "CurrentButton";
+        CurrentButton.Size = new Size(94, 29);
+        CurrentButton.TabIndex = 5;
+        CurrentButton.Text = "Current";
+        CurrentButton.UseVisualStyleBackColor = true;
+        CurrentButton.Click += CurrentButton_Click;
+        // 
+        // Form2
+        // 
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(345, 344);
+        Controls.Add(CurrentButton);
+        Controls.Add(downButton1);
+        Controls.Add(upButton1);
+        Controls.Add(listBox1);
+        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        Name = "Form2";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "Code sample";
+        ResumeLayout(false);
     }
 
     #endregion

@@ -156,4 +156,22 @@ public static class DataGridViewExtensions
             source.Columns[index].HeaderText = SplitCamelCase(source.Columns[index].HeaderText);
         }
     }
+    /// <summary>
+    /// Disable all columns sorting
+    /// </summary>
+    /// <param name="source"></param>
+    public static void DisableSorting(this DataGridView source)
+    {
+        source.Columns
+            .Cast<DataGridViewColumn>()
+            .ToList()
+            .ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
+    }
+    public static void EnableSorting(this DataGridView source)
+    {
+        source.Columns
+            .Cast<DataGridViewColumn>()
+            .ToList()
+            .ForEach(f => f.SortMode = DataGridViewColumnSortMode.Automatic);
+    }
 }

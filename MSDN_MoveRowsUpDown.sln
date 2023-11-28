@@ -31,23 +31,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxOnly", "ListBoxOnly\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net Core", "Net Core", "{35C37CB3-D0BE-41E1-AC13-311882996FC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowFormsControlsCore", "WindowFormsControlsCore\WindowFormsControlsCore.csproj", "{7DFFFEE2-4D91-4712-B218-29BC0CF5310C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowFormsControlsCore", "WindowFormsControlsCore\WindowFormsControlsCore.csproj", "{7DFFFEE2-4D91-4712-B218-29BC0CF5310C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLangageExtensionsLibraryCore", "CommonLangageExtensionsLibraryCore\CommonLangageExtensionsLibraryCore.csproj", "{6857EE15-A4A7-437B-A95C-D8997E6FFE70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonLangageExtensionsLibraryCore", "CommonLangageExtensionsLibraryCore\CommonLangageExtensionsLibraryCore.csproj", "{6857EE15-A4A7-437B-A95C-D8997E6FFE70}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{9DE2E1B5-47D4-4C9E-9024-753B56527B02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBxOnlyCore", "ListBxOnlyCore\ListBxOnlyCore.csproj", "{AD2F6FFF-EE57-467B-A853-C6FEC8889B4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBxOnlyCore", "ListBxOnlyCore\ListBxOnlyCore.csproj", "{AD2F6FFF-EE57-467B-A853-C6FEC8889B4F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conventional Framework", "Conventional Framework", "{79931B01-93EF-4160-A014-1701AC6316E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonLibraryCore", "JsonLibraryCore\JsonLibraryCore.csproj", "{B0A1C987-4098-4BB9-BCA5-0BD82B349008}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonLibraryCore", "JsonLibraryCore\JsonLibraryCore.csproj", "{B0A1C987-4098-4BB9-BCA5-0BD82B349008}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListViewJson", "ListViewJson\ListViewJson.csproj", "{748B7AF6-60BE-403E-B2E5-AE8E854E0ECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListViewJson", "ListViewJson\ListViewJson.csproj", "{748B7AF6-60BE-403E-B2E5-AE8E854E0ECA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class project conventional", "Class project conventional", "{7DC33C8B-14A5-4DA2-BAF7-6AA28AE7FBB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewCore", "DataGridViewCore\DataGridViewCore.csproj", "{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridViewCore", "DataGridViewCore\DataGridViewCore.csproj", "{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewCore1", "DataGridViewCore1\DataGridViewCore1.csproj", "{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +121,10 @@ Global
 		{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{748B7AF6-60BE-403E-B2E5-AE8E854E0ECA} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
 		{7DC33C8B-14A5-4DA2-BAF7-6AA28AE7FBB4} = {79931B01-93EF-4160-A014-1701AC6316E3}
 		{6850A357-9FA0-47D7-9AEA-A54FA3BC7D86} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
+		{7FE29D2E-FD2F-4030-9D7A-E65A8ED770E8} = {35C37CB3-D0BE-41E1-AC13-311882996FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960C72E1-CAD4-4406-9C92-CC4C54ECA8D0}
