@@ -5,6 +5,8 @@ Source code for [TechNet article](https://social.technet.microsoft.com/wiki/cont
 
 For full documentation see [article.md](article.md)
 
+11/2023 Added extension methods to move rows up/down with a list.
+
 
 > **Note**
 > The original source code was done in .NET Framework 4.8, 01/2023 added several mirror image project in .NET Core 7 using Visual Studio 2022.
