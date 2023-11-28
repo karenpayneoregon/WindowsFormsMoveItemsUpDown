@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="readme.md" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
+		<PackageReference Include="Bogus" Version="34.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\DapperLibrary1\DapperLibrary1.csproj" />
+	  <ProjectReference Include="..\WindowFormsControlsCore\WindowFormsControlsCore.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="scripts\" />
+	</ItemGroup>
+
+</Project>
