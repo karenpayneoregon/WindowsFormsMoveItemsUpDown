@@ -5,6 +5,9 @@ Source code for [TechNet article](https://social.technet.microsoft.com/wiki/cont
 
 For full documentation see [article.md](article.md)
 
+
+![Move List View](assets/MoveListView.gif)
+
 11/2023 Added extension methods to move rows up/down with a list.
 
 
@@ -12,6 +15,10 @@ For full documentation see [article.md](article.md)
 > The original source code was done in .NET Framework 4.8, 01/2023 added several mirror image project in .NET Core 7 using Visual Studio 2022.
 
 ### Requires
+
+> **Note**
+> There are two paths, .NET Framework 4.8 and .NET Core 8 which means, if the reader does not have VS2022 and .NET Core 8 either delete those projects or upgrade.
+
 - Microsoft Visual Studio 2017 or higher - see note above
 - Microsoft SQL-Server 2012 or higher
 

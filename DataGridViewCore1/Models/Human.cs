@@ -1,4 +1,4 @@
-﻿namespace VariousApp.Models;
+﻿namespace DataGridViewCore1.Models;
 internal class Human
 {
     public int Id { get; set; }

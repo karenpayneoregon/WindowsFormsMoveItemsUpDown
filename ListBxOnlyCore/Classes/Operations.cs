@@ -35,9 +35,11 @@ public class Operations
         // in the constructor.
         //
         var selectStatement = 
-            $"SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} " + 
-            "FROM dbo.Products WHERE CategoryID = @CategoryID " + 
-            $"ORDER BY {KeyPositionFieldName}";
+            $"""
+             SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} 
+             FROM dbo.Products 
+             WHERE CategoryID = @CategoryID ORDER BY {KeyPositionFieldName}
+             """;
 
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
@@ -65,8 +67,10 @@ public class Operations
     public (bool success, Exception exception) UpdateProductTable(DataTable pDataTable)
     {
 
-        var selectStatement = $"UPDATE dbo.Products SET {KeyPositionFieldName} =" +
-                              $" @{KeyPositionFieldName} WHERE ProductID = @ProductId";
+        var selectStatement = $"""
+                               UPDATE dbo.Products SET {KeyPositionFieldName} = @{KeyPositionFieldName} 
+                               WHERE ProductID = @ProductId
+                               """;
 
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
@@ -100,8 +104,7 @@ public class Operations
                 cmd.Parameters["@ProductId"].Value =
                     pDataTable.Rows[rowIndex].Field<int>("ProductId");
 
-                //cmd.ExecuteNonQuery();
-                Console.WriteLine(cmd.ExecuteNonQuery());
+                cmd.ExecuteNonQuery();
                 newPosition += 1;
             }
 

@@ -1,4 +1,5 @@
 using DapperLibrary1.Extensions;
+using DapperLibrary1.Models;
 using DapperLibrary1.Repositories;
 using DataGridViewCore2.Extensions;
 using DataGridViewCore2.MockingClasses;
@@ -9,6 +10,7 @@ public partial class Form1 : Form
 {
     PersonRepository repo = new();
     private readonly BindingSource _bindingSource = new();
+
     public Form1()
     {
         InitializeComponent();
@@ -22,7 +24,7 @@ public partial class Form1 : Form
     }
     private async void Form1_Shown(object? sender, EventArgs e)
     {
-        await Task.Delay(0);
+
         await InitialSetup();
         _bindingSource.DataSource = await repo.GetAllAsync();
         dataGridView1.DataSource = _bindingSource;
@@ -30,15 +32,16 @@ public partial class Form1 : Form
         dataGridView1.FixHeaders();
         dataGridView1.ExpandColumns();
         dataGridView1.DisableSorting();
+        dataGridView1.Columns[0].Visible = false;
     }
 
     private void upButton1_Click(object sender, EventArgs e)
     {
-        _bindingSource.MoveRowUp();
+        _bindingSource.MoveRowUp<Person>();
     }
     private void downButton1_Click(object sender, EventArgs e)
     {
-        _bindingSource.MoveRowDown();
+        _bindingSource.MoveRowDown<Person>();
     }
     private void DumpToJsonButton_Click(object sender, EventArgs e)
     {

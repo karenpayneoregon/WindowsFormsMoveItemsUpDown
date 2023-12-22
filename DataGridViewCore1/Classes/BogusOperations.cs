@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using VariousApp.Models;
+using DataGridViewCore1.Models;
 
 namespace DataGridViewCore1.Classes;
 internal class BogusOperations

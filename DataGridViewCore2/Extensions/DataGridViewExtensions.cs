@@ -36,7 +36,7 @@ public static class DataGridViewExtensions
         }
     }
     /// <summary>
-    /// Split on upper cased letters
+    /// Split on uppercase letters
     /// </summary>
     /// <param name="source"></param>
     public static void FixHeaders(this DataGridView source)

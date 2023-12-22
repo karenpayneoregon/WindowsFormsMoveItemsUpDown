@@ -24,7 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{027AE406-7B41-4C18-81EB-44EE00614A42}"
 	ProjectSection(SolutionItems) = preProject
 		article.md = article.md
-		Readme.md = Readme.md
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxOnly", "ListBoxOnly\ListBoxOnly.csproj", "{4E6AE4AF-4740-442E-85F0-E52F97E44890}"
@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperLibrary1", "DapperLib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridViewCore2", "DataGridViewCore2\DataGridViewCore2.csproj", "{4FD9E7D9-8D8A-4DB2-9D74-77D43751375D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateRowMarkerSampleApp", "CreateRowMarkerSampleApp\CreateRowMarkerSampleApp.csproj", "{B9F36288-04D7-40CC-8384-5555791347E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateRowMarkerSampleApp", "CreateRowMarkerSampleApp\CreateRowMarkerSampleApp.csproj", "{B9F36288-04D7-40CC-8384-5555791347E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

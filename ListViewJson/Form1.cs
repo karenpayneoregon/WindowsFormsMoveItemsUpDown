@@ -43,9 +43,10 @@ public partial class Form1 : Form
         var applicationList = _operations.LoadApplicationData(_fileName);
         foreach (var app in applicationList)
         {
-            ListViewItem item;
-            item = new ListViewItem(app.Items());
-            item.Tag = app.id;
+            var item = new ListViewItem(app.Items())
+            {
+                Tag = app.id
+            };
             listView1.Items.Add(item);
         }
 
@@ -82,5 +83,19 @@ public partial class Form1 : Form
         _operations.SaveApplicationData(appList, _fileName);
 
         Close();
+    }
+
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+    {
+        if (keyData == (Keys.Control | Keys.Up))
+        {
+            listView1.MoveListViewItems(MoveDirection.Up);
+            return true;
+        }else if (keyData == (Keys.Control | Keys.Down))
+        {
+            listView1.MoveListViewItems(MoveDirection.Down);
+            return true;
+        }
+        return base.ProcessCmdKey(ref msg, keyData);
     }
 }

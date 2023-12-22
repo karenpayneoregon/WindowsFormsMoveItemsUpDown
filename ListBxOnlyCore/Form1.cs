@@ -54,6 +54,11 @@ public partial class Form1 : Form
 
     private void upButton1_Click(object sender, EventArgs e)
     {
+        MoveUp();
+    }
+
+    private void MoveUp()
+    {
         if (lstProducts.SelectedIndex < 0) return;
         lstProducts.MoveRowUp(_bindingSource, _operations.KeyPositionFieldName);
         _hasChanges = true;
@@ -61,8 +66,28 @@ public partial class Form1 : Form
 
     private void downButton1_Click(object sender, EventArgs e)
     {
+        MoveDown();
+    }
+
+    private void MoveDown()
+    {
         if (lstProducts.SelectedIndex < 0) return;
         lstProducts.MoveRowDown(_bindingSource, _operations.KeyPositionFieldName);
         _hasChanges = true;
+    }
+
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+    {
+        if (keyData == (Keys.Control | Keys.Up))
+        {
+            MoveUp();
+            return true;
+        }
+        else if (keyData == (Keys.Control | Keys.Down))
+        {
+            MoveDown();
+            return true;
+        }
+        return base.ProcessCmdKey(ref msg, keyData);
     }
 }

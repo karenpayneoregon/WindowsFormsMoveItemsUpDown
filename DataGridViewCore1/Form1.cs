@@ -45,4 +45,19 @@ public partial class Form1 : Form
         DataTable dt = (DataTable)_bindingSource.DataSource;
         File.WriteAllText("dump.json", DataOperations.DataTableToJson(dt));
     }
+
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+    {
+        if (keyData == (Keys.Control | Keys.Up))
+        {
+            _bindingSource.MoveRowUp();
+            return true;
+        }
+        else if (keyData == (Keys.Control | Keys.Down))
+        {
+            _bindingSource.MoveRowDown();
+            return true;
+        }
+        return base.ProcessCmdKey(ref msg, keyData);
+    }
 }

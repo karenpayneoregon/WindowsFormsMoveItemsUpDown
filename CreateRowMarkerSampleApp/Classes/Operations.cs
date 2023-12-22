@@ -6,7 +6,8 @@ namespace CreateRowMarkerSampleApp.Classes;
 
 public class Operations
 {
-    private readonly IDbConnection _cn = new SqlConnection(DataConnections.Instance.MainConnection);
+    private readonly IDbConnection _cn = 
+        new SqlConnection(DataConnections.Instance.MainConnection);
 
     public async Task ConfigureOrderDetailsForRowPosition()
     {

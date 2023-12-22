@@ -65,9 +65,10 @@ namespace DataBackEnd
         /// <returns></returns>
         public int LastRowPositionForCategory(int pCategoryIdentifier)
         {
-            var selectStatement = "SELECT MAX(RowPosition) " + 
-                                  "FROM dbo.Products " + 
-                                  "WHERE CategoryID = @CategoryId";
+            var selectStatement = 
+                "SELECT MAX(RowPosition) " + 
+                "FROM dbo.Products " + 
+                "WHERE CategoryID = @CategoryId";
 
             using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
             {

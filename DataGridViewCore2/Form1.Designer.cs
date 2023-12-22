@@ -38,11 +38,13 @@ partial class Form1
         // 
         // dataGridView1
         // 
+        dataGridView1.AllowUserToAddRows = false;
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dataGridView1.Location = new Point(12, 12);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(627, 188);
+        dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dataGridView1.Size = new Size(383, 188);
         dataGridView1.TabIndex = 0;
         // 
         // DumpToJsonButton
@@ -58,7 +60,7 @@ partial class Form1
         // upButton1
         // 
         upButton1.Image = (Image)resources.GetObject("upButton1.Image");
-        upButton1.Location = new Point(672, 12);
+        upButton1.Location = new Point(414, 12);
         upButton1.Name = "upButton1";
         upButton1.Size = new Size(55, 50);
         upButton1.TabIndex = 3;
@@ -68,7 +70,7 @@ partial class Form1
         // downButton1
         // 
         downButton1.Image = (Image)resources.GetObject("downButton1.Image");
-        downButton1.Location = new Point(672, 68);
+        downButton1.Location = new Point(414, 68);
         downButton1.Name = "downButton1";
         downButton1.Size = new Size(55, 50);
         downButton1.TabIndex = 4;
@@ -79,7 +81,7 @@ partial class Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(749, 244);
+        ClientSize = new Size(485, 244);
         Controls.Add(downButton1);
         Controls.Add(upButton1);
         Controls.Add(DumpToJsonButton);
