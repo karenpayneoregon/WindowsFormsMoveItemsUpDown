@@ -4,6 +4,11 @@ This article provides methods for allowing the following, DataGridView, ListBox,
 
 Typical business applications which interact with data usually present data in the user interface un-sorted or sorted by a fixed order or user-defined order while there is another possibility, provide the user with an option to sort data in a non-orthodox sort order such as business wants the capability to order by row e.g. move row one in a DataGridView, a ListBox, a CheckedListBox or a ListView up or down and remember the position when reopening their application.
 
+
+Example that moves items up/down with hotkeys or buttons.
+
+![List Box Moving With Keys](assets/ListBoxMovingWithKeys.gif)
+
 ## Implementation
 
 Each control, DataGridView, ListBox, CheckedListBox, and ListView use language extensions provided in the class project CommonLangageExtensionsLibrary and CommonLangageExtensionsLibraryCore within the solution for the demonstrations. These extensions work with or without binding data to any of these controls.
