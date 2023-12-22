@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{027AE406-7B41-4C18-81EB-44EE00614A42}"
 	ProjectSection(SolutionItems) = preProject
 		article.md = article.md
+		NorthWindSpecial.md = NorthWindSpecial.md
 		readme.md = readme.md
 	EndProjectSection
 EndProject

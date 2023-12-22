@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\Populate.sql" />
     <EmbeddedResource Include="BuildSelectStatementForm.resx">
       <DependentUpon>BuildSelectStatementForm.cs</DependentUpon>
     </EmbeddedResource>

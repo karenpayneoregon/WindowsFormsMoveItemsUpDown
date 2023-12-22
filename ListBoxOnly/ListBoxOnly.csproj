@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\Populate.sql" />
     <EmbeddedResource Include="LoadProductListBoxForm.resx">
       <DependentUpon>LoadProductListBoxForm.cs</DependentUpon>
     </EmbeddedResource>
