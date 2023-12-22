@@ -60,9 +60,9 @@ namespace MainApplication
         {
             
             /*
-             * By default we pass a static category identifier, passing -1 selects a random category
+             * By default, we pass a static category identifier, passing -1 selects a random category
              */
-            var dt = _operations.LoadProductsByCategory(1);
+            var dt = _operations.LoadProductsByCategory(2);
             
             _CategoryIdentifier = _operations.CategoryIdentifier;
 

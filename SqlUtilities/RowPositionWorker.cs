@@ -81,7 +81,7 @@ namespace SqlUtilities
                         cmd.Parameters.AddWithValue("@MaxSurrogateKey", 0);
                         cmd.CommandText = "UPDATE  dbo.Suppliers " +
                                           "SET @MaxSurrogateKey = RowPosition = @MaxSurrogateKey + 1 " +
-                                           "WHERE   RowPosition IS NULL; ";
+                                           "WHERE  RowPosition IS NULL; ";
 
                         cmd.ExecuteNonQuery();
 

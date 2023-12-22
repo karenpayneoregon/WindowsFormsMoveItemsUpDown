@@ -349,7 +349,7 @@ namespace DataBackEnd
 
             if (pOrder)
             {
-                selectStatement = selectStatement + " ORDER BY ProductName";
+                selectStatement += " ORDER BY ProductName";
             }
 
             using (var cn = new SqlConnection() { ConnectionString = ConnectionString })
@@ -511,7 +511,7 @@ namespace DataBackEnd
 
                         cn.Open();
 
-                        // used to give new row postion
+                        // used to give new row position
                         int newPosition = 0;
 
                         for (var rowIndex = 0; rowIndex < pDataTable.Rows.Count; rowIndex++)
