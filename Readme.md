@@ -1,6 +1,6 @@
 ## C# Move rows up/down DataGridview and other controls
 This repostory contains code to show how to move rows up and down using buttons on common Windows forms controls and remember their positions in a SQL-Server database table.
-Source code for [TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/51662.c-datagridview-listbox-checklistbox-listview-move-items-updown.aspx). 
+Source code for [TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/51662.c-datagridview-listbox-checklistbox-listview-move-items-updown.aspx) and a more [current article](https://dev.to/karenpayneoregon/windows-form-move-items-updown-in-listview-and-more-5gp7) as TechNet is going away. 
 
 
 For full documentation see [article.md](article.md)
