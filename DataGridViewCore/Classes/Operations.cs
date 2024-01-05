@@ -42,11 +42,12 @@ public class Operations
     /// Update row position field in product table
     /// </summary>
     /// <param name="container"></param>
+    /// <remarks>Marc Gravell recommendations which slimmed down the code from prior versions</remarks>
     public void UpdateProductTable(List<RowItem> container)
     {
 
         var selectStatement =
-            $"""
+            """
              UPDATE dbo.Products
              SET RowPosition = @RowPosition
              WHERE ProductID = @ProductId
