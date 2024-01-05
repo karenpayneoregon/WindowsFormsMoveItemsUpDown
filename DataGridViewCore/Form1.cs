@@ -7,10 +7,7 @@ namespace DataGridViewCore;
 
 public partial class Form1 : Form
 {
-    /// <summary>
-    /// This is the field in the database table that hold the 
-    /// position a record will be displayed
-    /// </summary>
+
     private readonly Operations _operations = new();
 
     /// <summary>
@@ -26,7 +23,6 @@ public partial class Form1 : Form
 
     public bool HasChanges => _hasChanges;
     private int _categoryIdentifier;
-    public int CategoryIdentifier => _categoryIdentifier;
 
     public Form1()
     {
@@ -56,7 +52,7 @@ public partial class Form1 : Form
     {
         if (_hasChanges)
         {
-            _operations.UpdateProductTable((DataTable)_bindingSource.DataSource);
+            _operations.UpdateProductTable(_bindingSource.DataTable());
         }
     }
 

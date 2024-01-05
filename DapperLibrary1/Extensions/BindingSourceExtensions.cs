@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Data;
+using System.Text.Json;
 using DapperLibrary1.Models;
 
 namespace DapperLibrary1.Extensions;
@@ -127,6 +128,15 @@ public static class BindingSourceExtensions
         var serializerOptions = new JsonSerializerOptions { WriteIndented = true };
         var list = (List<Person>)sender.DataSource;
         File.WriteAllText(fileName, JsonSerializer.Serialize(list, serializerOptions));
+    }
+
+    public static DataTable DataTable(this BindingSource pBindingSource)
+    {
+        return (DataTable)pBindingSource.DataSource;
+    }
+    public static DataRow CurrentRow(this BindingSource pBindingSource)
+    {
+        return ((DataRowView)pBindingSource.Current).Row;
     }
 
 }

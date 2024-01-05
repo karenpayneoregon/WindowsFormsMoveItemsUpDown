@@ -1,91 +1,38 @@
 ﻿using System.Data;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
 
 namespace DataGridViewCore.Classes;
 
-public class Operations 
+public class Operations
 {
-    /// <summary>
-    /// Set up default category for the sql-server database
-    /// Set the field used to update row position in a table.
-    /// </summary>
-    /// <param name="keyPositionFieldName"></param>
-    public Operations(string keyPositionFieldName = "RowPosition")
-    {
-
-        KeyPositionFieldName = keyPositionFieldName;
-    }
-    /// <summary>
-    /// Field responsible for remembering position
-    /// </summary>
-    public string KeyPositionFieldName { get; set; }
-
-    /// <summary>
-    /// Get current row count for category table
-    /// </summary>
-    public (bool success, int count, Exception exception) CategoryCount
-    {
-        get
-        {
-
-            var selectStatement = "SELECT COUNT(Id) FROM dbo.Categories";
-
-            using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-            using var cmd = new SqlCommand() { Connection = cn };
-
-            cmd.CommandText = selectStatement;
-            try
-            {
-                cn.Open();
-                return (true,(int)cmd.ExecuteScalar()!, null)!;
-            }
-            catch (Exception ex)
-            {
-                return (false, 0, ex);
-            }
-        }
-
-    }
-
 
     private int _categoryIdentifier;
     public int CategoryIdentifier => _categoryIdentifier;
-    
+
     /// <summary>
     /// Load products by category identifier
     /// </summary>
-    /// <param name="categoryIdentifier">Exists category identifier</param>
+    /// <param name="categoryIdentifier">Category identifier</param>
     /// <returns></returns>
     public DataTable LoadProductsByCategory(int categoryIdentifier)
     {
-            
         _categoryIdentifier = categoryIdentifier;
 
         var dt = new DataTable();
-   
-
-        //
-        // Note the field to use for positioning rows is dynamic based on the name provided
-        // in the constructor.
-        //
-        var selectStatement = 
-            $"""
-             SELECT ProductID,ProductName,CategoryID,{KeyPositionFieldName} 
-             FROM dbo.Products 
-             WHERE CategoryID = @CategoryID 
-             ORDER BY {KeyPositionFieldName}
-            """;
-
+        var selectStatement =
+            """
+                  SELECT ProductID,ProductName,CategoryID,RowPosition
+                  FROM dbo.Products
+                  WHERE CategoryID = @CategoryID
+                  ORDER BY RowPosition
+                 """;
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-        using var cmd = new SqlCommand() { Connection = cn };
-        
-        cmd.Parameters.Add("@CategoryID", SqlDbType.Int).Value = _categoryIdentifier;
-        cmd.CommandText = selectStatement;
-        cn.Open();
-        dt.Load(cmd.ExecuteReader());
+        var reader = cn.ExecuteReader(selectStatement, new { CategoryID = categoryIdentifier });
 
+        dt.Load(reader);
         return dt;
     }
 
@@ -96,44 +43,24 @@ public class Operations
     /// <returns></returns>
     public void UpdateProductTable(DataTable dataTable)
     {
-        var selectStatement = 
+        var selectStatement =
             $"""
-             UPDATE dbo.Products 
-             SET {KeyPositionFieldName} = @{KeyPositionFieldName} 
-             WHERE ProductID = @ProductId
-             """;
-
+                 UPDATE dbo.Products
+                 SET RowPosition = @RowPosition
+                 WHERE ProductID = @ProductId
+                 """;
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-        using var cmd = new SqlCommand() { Connection = cn };
 
-        cmd.CommandText = selectStatement;
-        cmd.Parameters.Add(new SqlParameter()
-        {
-            ParameterName = $"@{KeyPositionFieldName}",
-            SqlDbType = SqlDbType.Int
-        });
-
-        cmd.Parameters.Add(new SqlParameter()
-        {
-            ParameterName = "@ProductId",
-            SqlDbType = SqlDbType.Int
-        });
-
-        cn.Open();
-
-        // used to give new row position
         int newPosition = 0;
 
         for (var rowIndex = 0; rowIndex < dataTable.Rows.Count; rowIndex++)
         {
-            // set new row position
-            cmd.Parameters[$"@{KeyPositionFieldName}"].Value = newPosition;
-
-            cmd.Parameters["@ProductId"].Value =
-                dataTable.Rows[rowIndex].Field<int>("ProductId");
-
-            cmd.ExecuteNonQuery();
+            cn.Execute(selectStatement, new
+            {
+                RowPosition = newPosition,
+                ProductId = dataTable.Rows[rowIndex].Field<int>("ProductId")
+            });
             newPosition += 1;
         }
     }
