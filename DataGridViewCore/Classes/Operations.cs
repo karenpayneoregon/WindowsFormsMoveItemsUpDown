@@ -1,7 +1,9 @@
 ﻿using System.Data;
 using Dapper;
+using DataGridViewCore.Models;
 using Microsoft.Data.SqlClient;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
+// ReSharper disable ForCanBeConvertedToForeach
 
 namespace DataGridViewCore.Classes;
 
@@ -39,29 +41,26 @@ public class Operations
     /// <summary>
     /// Update row position field in product table
     /// </summary>
-    /// <param name="dataTable"></param>
+    /// <param name="container"></param>
     /// <returns></returns>
-    public void UpdateProductTable(DataTable dataTable)
+    public void UpdateProductTable(List<RowItem> container)
     {
+
         var selectStatement =
             $"""
-                 UPDATE dbo.Products
-                 SET RowPosition = @RowPosition
-                 WHERE ProductID = @ProductId
-                 """;
+             UPDATE dbo.Products
+             SET RowPosition = @RowPosition
+             WHERE ProductID = @ProductId
+             """;
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-
-        int newPosition = 0;
-
-        for (var rowIndex = 0; rowIndex < dataTable.Rows.Count; rowIndex++)
+        
+        for (var index = 0; index < container.Count; index++)
         {
             cn.Execute(selectStatement, new
             {
-                RowPosition = newPosition,
-                ProductId = dataTable.Rows[rowIndex].Field<int>("ProductId")
+                container[index].RowPosition, container[index].ProductId
             });
-            newPosition += 1;
         }
     }
 }

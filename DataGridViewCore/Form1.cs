@@ -1,6 +1,8 @@
 using System.Data;
 using CommonLangageExtensionsLibraryCore;
 using DataGridViewCore.Classes;
+using DataGridViewCore.Models;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace DataGridViewCore;
@@ -52,7 +54,7 @@ public partial class Form1 : Form
     {
         if (_hasChanges)
         {
-            _operations.UpdateProductTable(_bindingSource.DataTable());
+            _operations.UpdateProductTable(_bindingSource.DataTable().RowItems());
         }
     }
 
