@@ -54,12 +54,6 @@ public class Operations
 
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
         
-        for (var index = 0; index < container.Count; index++)
-        {
-            cn.Execute(selectStatement, new
-            {
-                container[index].RowPosition, container[index].ProductId
-            });
-        }
+        cn.Execute(selectStatement, container);
     }
 }
