@@ -42,7 +42,6 @@ public class Operations
     /// Update row position field in product table
     /// </summary>
     /// <param name="container"></param>
-    /// <returns></returns>
     public void UpdateProductTable(List<RowItem> container)
     {
 
