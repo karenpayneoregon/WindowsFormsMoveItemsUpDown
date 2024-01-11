@@ -2,10 +2,11 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<Nullable>disable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<!--<ApplicationDefaultFont>Comic Sans MS, 12</ApplicationDefaultFont>-->
 	</PropertyGroup>
 
 	<ItemGroup>

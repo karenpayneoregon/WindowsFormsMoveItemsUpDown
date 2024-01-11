@@ -10,9 +10,6 @@ namespace DataGridViewCore.Classes;
 public class Operations
 {
 
-    private int _categoryIdentifier;
-    public int CategoryIdentifier => _categoryIdentifier;
-
     /// <summary>
     /// Load products by category identifier
     /// </summary>
@@ -20,21 +17,9 @@ public class Operations
     /// <returns></returns>
     public DataTable LoadProductsByCategory(int categoryIdentifier)
     {
-        _categoryIdentifier = categoryIdentifier;
-
         var dt = new DataTable();
-        var selectStatement =
-            """
-                  SELECT ProductID,ProductName,CategoryID,RowPosition
-                  FROM dbo.Products
-                  WHERE CategoryID = @CategoryID
-                  ORDER BY RowPosition
-                 """;
-
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-        var reader = cn.ExecuteReader(selectStatement, new { CategoryID = categoryIdentifier });
-
-        dt.Load(reader);
+        dt.Load(cn.ExecuteReader(SqlStatements.SelectCategoryByRowPosition, new { CategoryID = categoryIdentifier }));
         return dt;
     }
 
@@ -42,19 +27,10 @@ public class Operations
     /// Update row position field in product table
     /// </summary>
     /// <param name="container"></param>
-    /// <remarks>Marc Gravell recommendations which slimmed down the code from prior versions</remarks>
+    /// <remarks>Marc Gravell (Dapper author) recommendations which slimmed down the code from prior versions</remarks>
     public void UpdateProductTable(List<RowItem> container)
     {
-
-        var selectStatement =
-            """
-             UPDATE dbo.Products
-             SET RowPosition = @RowPosition
-             WHERE ProductID = @ProductId
-             """;
-
         using var cn = new SqlConnection() { ConnectionString = ConnectionString() };
-        
-        cn.Execute(selectStatement, container);
+        cn.Execute(SqlStatements.UpdateProduct, container);
     }
 }

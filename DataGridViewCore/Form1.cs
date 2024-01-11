@@ -35,8 +35,8 @@ public partial class Form1 : Form
 
     private void Form1_Shown(object? sender, EventArgs e)
     {
-        DataTable table = _operations.LoadProductsByCategory(1);
-        _categoryIdentifier = _operations.CategoryIdentifier;
+        _categoryIdentifier = 1;
+        DataTable table = _operations.LoadProductsByCategory(_categoryIdentifier);
 
         table.Columns["CategoryId"].ColumnMapping = MappingType.Hidden;
         table.Columns["RowPosition"].SetOrdinal(0);
