@@ -85,6 +85,15 @@ public class PersonRepository : IBaseRepository
     }
 
     /// <summary>
+    /// Update list of <see cref="Person"/>
+    /// </summary>
+    /// <param name="list">List with items</param>
+    public void UpdatePeople(List<Person> list)
+    {
+        cn.Execute(SqlStatements.UpdatePeople, list);
+    }
+
+    /// <summary>
     /// Add a single person
     /// </summary>
     /// <param name="person"></param>
@@ -134,6 +143,10 @@ public class PersonRepository : IBaseRepository
     /// <returns></returns>
     public async Task AddRangeSlim(List<Person> list)
     {
+        for (int index = 0; index < list.Count; index++)
+        {
+            list[index].RowPosition = index +1;
+        }
         await cn.ExecuteAsync(SqlStatements.InsertPeople, list);
     }
     /// <summary>

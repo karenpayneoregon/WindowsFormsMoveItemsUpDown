@@ -1,11 +1,11 @@
 ﻿# About
 
+![Figure1](assets/figure1.png)
+
 This project is an example of moving rows up/down in a DataGridView using a list where the other DataGridView samples use a DataTable of the source for a DataGridView.
 
-## .NET versions
 
-- This project is net8
-- The class project DapperLibrary1 is net7
+![Figure2](assets/figure2.png)
 
 ## Data operations
 
@@ -15,7 +15,7 @@ Use [Dapper](https://www.nuget.org/packages/Dapper/2.1.24?_src=template) for all
 
 - Create the database via script.sql in the scripts folder
 - Build/Run
-- Comment out `await InitialSetup();` in `Form1_Shown` as this is only need once to populate the database or keep it for new data via [Bogus](https://www.nuget.org/packages/Bogus) NuGet package.
+- To reset the data, click the Reset button which uses [Bogus](https://www.nuget.org/packages/Bogus) NuGet package to generate consistent data via a seed.
 
 ## Notes
 

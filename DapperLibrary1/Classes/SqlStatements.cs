@@ -14,10 +14,11 @@ public class SqlStatements
         (
             FirstName,
             LastName,
-            BirthDate
+            BirthDate,
+            RowPosition
         )
         VALUES
-        (@FirstName, @LastName, @BirthDate);
+        (@FirstName, @LastName, @BirthDate,@RowPosition);
         SELECT CAST(scope_identity() AS int);
         """;
 
@@ -29,8 +30,10 @@ public class SqlStatements
         SELECT Id,
                FirstName,
                LastName,
-               BirthDate
-        FROM dbo.Person;
+               BirthDate,
+               RowPosition
+        FROM dbo.Person
+        ORDER BY RowPosition;
         """;
 
     /// <summary>
@@ -55,6 +58,15 @@ public class SqlStatements
         SET FirstName = @FirstName,
             LastName = @LastName,
             BirthDate = @BirthDate
+        WHERE Id = @Id;
+        """;
+    public static string UpdatePeople =>
+        """
+        UPDATE dbo.Person
+        SET FirstName = @FirstName,
+            LastName = @LastName,
+            BirthDate = @BirthDate,
+            RowPosition = @RowPosition
         WHERE Id = @Id;
         """;
 

@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace DataGridViewCore2.Extensions;
@@ -13,6 +14,7 @@ public static class DataGridViewExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <param name="sizable"></param>
+    [DebuggerStepThrough]
     public static void ExpandColumns(this DataGridView source, bool sizable = true)
     {
         foreach (DataGridViewColumn col in source.Columns)
@@ -39,21 +41,47 @@ public static class DataGridViewExtensions
     /// Split on uppercase letters
     /// </summary>
     /// <param name="source"></param>
+    [DebuggerStepThrough]
     public static void FixHeaders(this DataGridView source)
     {
-        string SplitCamelCase(string sender)
-            => string.Join(" ", Regex.Matches(sender,
-                @"([A-Z][a-z]+)").Select(m => m.Value));
 
         for (int index = 0; index < source.Columns.Count; index++)
         {
             source.Columns[index].HeaderText = SplitCamelCase(source.Columns[index].HeaderText);
         }
     }
+
+    [DebuggerStepThrough]
+    public static string SplitCamelCase(this string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+        }
+
+        Span<char> result = stackalloc char[input.Length * 2];
+        var resultIndex = 0;
+
+        for (var index = 0; index < input.Length; index++)
+        {
+            var currentChar = input[index];
+
+            if (index > 0 && char.IsUpper(currentChar))
+            {
+                result[resultIndex++] = ' ';
+            }
+
+            result[resultIndex++] = currentChar;
+        }
+
+        return result[..resultIndex].ToString();
+    }
+
     /// <summary>
     /// Disable all columns sorting
     /// </summary>
     /// <param name="source"></param>
+    [DebuggerStepThrough]
     public static void DisableSorting(this DataGridView source)
     {
         source.Columns
@@ -61,6 +89,7 @@ public static class DataGridViewExtensions
             .ToList()
             .ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
     }
+    [DebuggerStepThrough]
     public static void EnableSorting(this DataGridView source)
     {
         source.Columns

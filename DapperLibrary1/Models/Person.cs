@@ -12,6 +12,7 @@ public class Person : INotifyPropertyChanged, ICloneable
     private string _firstName;
     private string _lastName;
     private DateOnly _birthDate;
+    private int _rowPosition;
 
     public int Id
     {
@@ -54,6 +55,17 @@ public class Person : INotifyPropertyChanged, ICloneable
         {
             if (value.Equals(_birthDate)) return;
             _birthDate = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public int RowPosition
+    {
+        get => _rowPosition;
+        set
+        {
+            if (value == _rowPosition) return;
+            _rowPosition = value;
             OnPropertyChanged();
         }
     }

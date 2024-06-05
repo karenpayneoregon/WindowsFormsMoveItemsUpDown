@@ -61,6 +61,16 @@ namespace WindowFormsControlsCore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon blueInformation_32 {
+            get {
+                object obj = ResourceManager.GetObject("blueInformation_32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap DnArrow {
@@ -77,6 +87,16 @@ namespace WindowFormsControlsCore.Properties {
             get {
                 object obj = ResourceManager.GetObject("DownBlackSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon QuestionBlue {
+            get {
+                object obj = ResourceManager.GetObject("QuestionBlue", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
