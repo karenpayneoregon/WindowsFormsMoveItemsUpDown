@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using Dapper;
 using DataConnections;
 using SqlUtilities.ConcreteClasses;
 
@@ -56,6 +57,8 @@ namespace SqlUtilities
 
             return idList;
         }
+
+
 
         public (bool success, Exception exception) RigSuppliersTable()
         {
